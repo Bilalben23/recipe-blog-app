@@ -12,3 +12,21 @@
         background-color: #f9f9f9;
     }
 }
+
+.not-found-bg {
+    background-image: url('https://media.istockphoto.com/id/960871382/photo/assortment-of-the-fresh-vegetables.jpg?s=612x612&w=0&k=20&c=wUJcQBMWzoxwS_WNhCeoS0HaSMfS7IAHO_9uIg7WK0c=');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+.not-found-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay for readability */
+    z-index: 1;
+}

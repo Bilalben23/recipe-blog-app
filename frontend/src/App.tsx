@@ -1,5 +1,6 @@
 import AppLayout from '@layouts/AppLayout'
 import HomePage from '@pages/HomePage'
+import NotFound from '@pages/NotFound'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<HomePage />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
     </BrowserRouter>
