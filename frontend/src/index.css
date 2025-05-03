@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary: #f9f7f3;
+    --color-secondary: #1b2629;
+    --color-btnColor: #9c702a
+}
+
+@layer base {
+    html {
+        font-family: "Lora", serif;
+        background-color: #f9f9f9;
+    }
+}
