@@ -16,8 +16,9 @@ export default function Header() {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
+
     return (
-        <header className="flex items-center justify-between px-6 md:px-12 py-2 gap-x-5 border">
+        <header className="flex items-center justify-between px-6 md:px-12 py-2 gap-x-5 ">
             <Link to="/" className="p-2 shrink-0">
                 <img src={logo} className='w-18 md:w-20' alt="logo" />
             </Link>
@@ -26,7 +27,7 @@ export default function Header() {
                     {
                         menuItems.map((item) => (
                             <li key={item}>
-                                <Link to={`/${item}`} className="capitalize p-2 inline-block font-semibold">{item}</Link>
+                                <Link to={`/${item}`} className="capitalize p-2 inline-block font-medium">{item}</Link>
                             </li>
                         ))
                     }

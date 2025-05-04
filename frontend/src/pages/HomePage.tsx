@@ -1,9 +1,12 @@
-import React from 'react'
+import CategoryWrapper from '@components/ui/category/CategoryWrapper'
+import Hero from '@components/ui/Hero'
 
 export default function HomePage() {
+
     return (
-        <div>
-            Home page goes here
+        <div className='container mx-auto'>
+            <Hero />
+            <CategoryWrapper />
         </div>
     )
 }
