@@ -1,3 +1,4 @@
+import { APP_ROUTES } from '@constants/routes'
 import AppLayout from '@layouts/AppLayout'
 import HomePage from '@pages/HomePage'
 import NotFound from '@pages/NotFound'
@@ -8,11 +9,12 @@ export default function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route path="/" element={<AppLayout />}>
+        <Route path={APP_ROUTES.home} element={<AppLayout />}>
           <Route index element={<HomePage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      
 
     </BrowserRouter>
   )
