@@ -30,3 +30,6 @@ export const categories = [
         color: '#f0493e',
     },
 ] as const;
+
+
+export type CategoryName = typeof categories[number]['name'];
