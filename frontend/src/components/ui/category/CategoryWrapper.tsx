@@ -1,6 +1,6 @@
 import CategoryList from './CategoryList';
 
-const CategoryWrapper = () => {
+export default function CategoryWrapper() {
     return (
         <div>
             <CategoryList />
@@ -8,4 +8,3 @@ const CategoryWrapper = () => {
     );
 };
 
-export default CategoryWrapper;
