@@ -22,6 +22,35 @@ export const getAllItems = async (req: Request, res: Response) => {
 }
 
 
+export const getItemById = async (req: Request<{ id: string }>, res: Response) => {
+    const { id } = req.params;
+
+    try {
+        const item = await Item.findById(id);
+
+        if (!item) {
+            res.status(404).json({
+                success: false,
+                message: "Item not found"
+            })
+            return;
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Item fetched successfully",
+            data: item
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        })
+    }
+}
+
+
 export const getSearchItems = async (req: Request<{}, {}, {}, { q: string }>, res: Response) => {
     const { q } = req.query;
 
