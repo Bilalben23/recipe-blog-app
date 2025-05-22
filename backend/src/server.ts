@@ -28,4 +28,4 @@ app.use("/api/v1/items", ItemsRoutes);
 app.listen(ENV_VARS.PORT, () => {
     console.log(`Server is running on port ${ENV_VARS.PORT}`);
     connectToDB();
-})
+}
