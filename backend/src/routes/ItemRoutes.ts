@@ -5,6 +5,8 @@ const router = Router();
 
 router.get("/", ItemsController.getAllItems);
 
+router.get("/:id", ItemsController.getItemById);
+
 router.get("/search", ItemsController.getSearchItems);
 
 export default router;

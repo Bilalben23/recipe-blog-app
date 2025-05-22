@@ -19,6 +19,10 @@ export default function CategoryPage() {
                 {category}
             </h1>
             <CategoryWrapper />
+
+            <div>
+
+            </div>
         </div>
     )
 }
