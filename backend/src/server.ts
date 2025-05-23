@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware to handle CORS
 app.use(cors({
-    origin: [ENV_VARS.FRONTEND_URL],
+    origin: [ENV_VARS.FRONTEND_URL, "http://192.168.8.100:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -26,7 +26,10 @@ app.use("/api/v1/items", ItemsRoutes);
 app.use("/api/v1/categories", CategoryRoutes);
 
 
-app.listen(ENV_VARS.PORT, () => {
+
+const HOST = '0.0.0.0';
+
+app.listen(ENV_VARS.PORT, HOST, () => {
     console.log(`Server is running on port ${ENV_VARS.PORT}`);
     connectToDB();
 })

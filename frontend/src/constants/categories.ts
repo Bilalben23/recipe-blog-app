@@ -1,12 +1,12 @@
 export const categories = [
     {
-        name: 'entrees',
-        bgColor: '#f0f5c4',
+        name: 'breakfast',
+        bgColor: '#efedfa',
         color: '#59871f',
     },
     {
-        name: 'breakfast',
-        bgColor: '#efedfa',
+        name: 'entrees',
+        bgColor: '#f0f5c4',
         color: '#59871f',
     },
     {

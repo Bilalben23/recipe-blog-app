@@ -1,17 +1,13 @@
 import CategoryWrapper from '@components/ui/category/CategoryWrapper';
-import { CategoryName } from '@constants/categories';
+import ItemCard from '@components/ui/ItemCard';
+import { type CategoryName } from '@constants/categories';
 import { useCategoryItems } from '@hooks/useCategoryItems';
 import { useParams } from 'react-router-dom'
 
 export default function CategoryPage() {
 
-    const { category } = useParams<{ category: CategoryName }>();
-
-    if (!category) {
-        return <div className="min-h-screen flex items-center justify-center">
-            <p className="text-xl text-gray-600">No category provided</p>
-        </div>
-    }
+    const params = useParams<{ category?: CategoryName }>();
+    const category = params.category ?? "breakfast";
 
     const { data: categoryItems, isLoading, isError } = useCategoryItems(category);
 
@@ -22,26 +18,39 @@ export default function CategoryPage() {
             </h1>
             <CategoryWrapper />
 
-            <ul>
-                {
-                    !isError
-                        ? isLoading
-                            ? <div>Loading...</div>
-                            :
-                            categoryItems?.data?.length > 0
-                                ? categoryItems?.data?.map((item: any) => (
-                                    <li key={item._id}>
-                                        <p >{item.name}</p>
-                                    </li>
-                                ))
-                                : <div>
-                                    <p className="text-xl text-gray-600">No items found</p>
-                                </div>
-                        : <div>
-                            <p className="text-xl text-gray-600">Error loading items</p>
-                        </div>
-                }
-            </ul>
+            <div className='container mt-10 mx-auto'>
+                {isError && (
+                    <div>
+                        <p className="text-xl text-gray-600">Error loading items</p>
+                    </div>
+                )}
+
+                {!isError && isLoading && (
+                    <div>Loading...</div>
+                )}
+
+                {!isError && !isLoading && categoryItems && categoryItems.length > 0 && (
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
+                        {categoryItems.map(item => (
+                            <ItemCard
+                                key={item._id}
+                                id={item._id}
+                                name={item.name}
+                                thumbnail_image={item.thumbnail_image}
+                                category_name={item.category.name}
+                                prep_time={item.more.prep_time}
+                                difficulty={item.more.difficulty}
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {!isError && !isLoading && (!categoryItems || categoryItems.length === 0) && (
+                    <div>
+                        <p className="text-xl text-gray-600">No items found</p>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

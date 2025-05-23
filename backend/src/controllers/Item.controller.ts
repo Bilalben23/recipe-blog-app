@@ -84,6 +84,7 @@ export const getSearchItems = async (req: Request<{}, {}, {}, { q?: string }>, r
 
 export const getItemsByCategory = async (req: Request<{ category: string }>, res: Response) => {
     const { category } = req.params;
+    console.log("Hello world");
 
     try {
 
