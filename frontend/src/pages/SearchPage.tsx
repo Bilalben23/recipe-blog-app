@@ -1,3 +1,5 @@
+import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
+import ItemCard from '@components/ui/ItemCard';
 import { useSearchItems } from '@hooks/useSearchItems';
 import { FormEvent, useEffect, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
@@ -33,20 +35,15 @@ export default function SearchPage() {
     }, [query]);
 
 
-    console.log('searchResults', searchResults);
-    console.log('isLoading', isLoading);
-    console.log('isError', isError);
-    console.log('error', error);
-
     return (
         <div className="px-6 md:px-10 py-15">
-            <h1 className="text-center text-2xl py-10 font-semibold sm:text-3xl md:text-4xl sm:leading-relaxed text-secondary">
+            <h1 className="py-10 text-2xl font-semibold text-center sm:text-3xl md:text-4xl sm:leading-relaxed text-secondary">
                 Search for recipes
             </h1>
 
             <form
                 onSubmit={handleSubmit}
-                className="bg-white mx-auto w-full rounded-md flex px-3 items-center gap-x-1 md:max-w-lg shadow-xs"
+                className="flex items-center w-full px-3 mx-auto bg-white rounded-md shadow-xs gap-x-1 md:max-w-lg"
             >
                 <IoSearchOutline className="size-5 text-neutral-500" />
                 <input
@@ -59,20 +56,39 @@ export default function SearchPage() {
                 />
             </form>
 
-            <div className='mt-10'>
-                {
-                    isLoading
-                        ? <div>Loading...</div>
-                        : searchResults?.data?.length > 0
-                            ? <ul>
-                                {
-                                    searchResults?.data?.map((item: any) => (
-                                        <li key={item._id}>{item.name}</li>
-                                    ))
-                                }
-                            </ul>
-                            : <div>No results found</div>
-                }
+            <div className='container mx-auto mt-12'>
+
+                {isLoading && <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
+                    {
+                        Array.from({ length: 6 }).map((_, index) => (
+                            <ItemCardSkeleton key={index} />
+                        ))
+                    }
+
+                </div>}
+
+                {!isLoading && searchResults?.data?.length > 0 && (
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
+
+                        {searchResults.data.map((item: any) => (
+                            <ItemCard
+                                key={item._id}
+                                id={item._id}
+                                name={item.name}
+                                thumbnail_image={item.thumbnail_image}
+                                category_name={item.category.name}
+                                prep_time={item.more.prep_time}
+                                difficulty={item.more.difficulty}
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {!isLoading && (!searchResults?.data || searchResults.data.length === 0) && (
+                    <div>
+                        No results found for <span className="italic">"{query}"</span>
+                    </div>
+                )}
             </div>
 
         </div>

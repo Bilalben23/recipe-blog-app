@@ -12,9 +12,9 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, menuItems, closeMenu }) =
     return (
         <nav className={`absolute flex items-center justify-center inset-0 bg-white z-50 transition-transform duration-200 ease-in w-full ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
-            <div className='min-w-xs px-5'>
+            <div className='px-5 min-w-xs'>
                 <div className="flex justify-end mb-8">
-                    <button className="p-1 cursor-pointer border rounded-full" onClick={closeMenu}>
+                    <button className="p-1 border rounded-full cursor-pointer" onClick={closeMenu}>
                         <HiXMark className="size-6 sm:size-7" />
                     </button>
                 </div>
@@ -22,7 +22,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, menuItems, closeMenu }) =
                     {
                         menuItems.map((item) => (
                             <li key={item}>
-                                <Link to={`/${item}`} className="capitalize p-2 inline-block font-medium">{item}</Link>
+                                <Link to={`/${item}`} className="inline-block p-2 font-medium capitalize">{item}</Link>
                             </li>
                         ))
                     }

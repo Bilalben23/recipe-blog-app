@@ -1,3 +1,4 @@
+import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
 import CategoryWrapper from '@components/ui/category/CategoryWrapper';
 import ItemCard from '@components/ui/ItemCard';
 import { type CategoryName } from '@constants/categories';
@@ -12,13 +13,13 @@ export default function CategoryPage() {
     const { data: categoryItems, isLoading, isError } = useCategoryItems(category);
 
     return (
-        <div className='px-4 sm:px-8 md:px-10 lg:px-12 py-4'>
-            <h1 className='text-center capitalize text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-6 md:py-9 font-semibold text-secondary sm:leading-relaxed'>
+        <div className='px-4 py-4 sm:px-8 md:px-10 lg:px-12'>
+            <h1 className='py-6 text-3xl font-semibold text-center capitalize sm:text-4xl md:text-5xl lg:text-6xl md:py-9 text-secondary sm:leading-relaxed'>
                 {category}
             </h1>
             <CategoryWrapper />
 
-            <div className='container mt-10 mx-auto'>
+            <div className='container mx-auto mt-12'>
                 {isError && (
                     <div>
                         <p className="text-xl text-gray-600">Error loading items</p>
@@ -26,11 +27,18 @@ export default function CategoryPage() {
                 )}
 
                 {!isError && isLoading && (
-                    <div>Loading...</div>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
+                        {
+                            Array.from({ length: 6 }).map((_, index) => (
+                                <ItemCardSkeleton key={index} />
+                            ))
+                        }
+
+                    </div>
                 )}
 
                 {!isError && !isLoading && categoryItems && categoryItems.length > 0 && (
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
                         {categoryItems.map(item => (
                             <ItemCard
                                 key={item._id}

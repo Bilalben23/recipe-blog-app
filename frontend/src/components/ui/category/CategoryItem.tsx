@@ -19,7 +19,7 @@ const CategoryItem: FC<CategoryItemProps> = ({ name, href, bgColor, color }) => 
         <div>
             <Link
                 to={href}
-                className="uppercase shadow-xs px-4 py-2 text-center rounded-full"
+                className="px-4 py-2 text-center uppercase rounded-full shadow-xs"
                 style={style}
             >
                 {name}

@@ -14,10 +14,10 @@ export default function Hero() {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center w-full py-6">
+        <div className="flex flex-col items-center justify-center w-full py-6">
             <h1 className='mt-5 mb-8 text-2xl sm:text-3xl md:text-4xl xl:text-5xl text-center font-bold leading-normal xl:leading-relaxed text-[#2A3342]'>Your Go-To Blog Template for Food <span className='text-orange-400'>Influencers</span></h1>
 
-            <form onSubmit={handleSubmit} className="bg-white w-full rounded-md flex px-3 items-center gap-x-1 md:max-w-lg shadow-xs">
+            <form onSubmit={handleSubmit} className="flex items-center w-full px-3 bg-white rounded-md shadow-xs gap-x-1 md:max-w-lg">
                 <IoSearchOutline className="size-5 text-neutral-500" />
                 <input
                     type="search"

@@ -66,6 +66,7 @@ export const getSearchItems = async (req: Request<{}, {}, {}, { q?: string }>, r
 
     try {
         const items = await Item.find({ name: { $regex: q, $options: "i" } })
+            .populate("category", "name")
 
         res.status(200).json({
             success: true,
