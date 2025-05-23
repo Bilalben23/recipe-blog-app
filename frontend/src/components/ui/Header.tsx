@@ -18,16 +18,16 @@ export default function Header() {
 
 
     return (
-        <header className="flex items-center justify-between px-6 md:px-12 py-2 gap-x-5 ">
+        <header className="flex items-center justify-between px-6 py-2 md:px-12 gap-x-5 ">
             <Link to="/" className="p-2 shrink-0">
                 <img src={logo} className='w-18 md:w-20' alt="logo" />
             </Link>
-            <nav className='hidden flex-1 md:flex justify-center'>
+            <nav className='justify-center flex-1 hidden md:flex'>
                 <ul className='flex items-center gap-x-3'>
                     {
                         menuItems.map((item) => (
                             <li key={item}>
-                                <Link to={`/${item}`} className="capitalize p-2 inline-block font-medium">{item}</Link>
+                                <Link to={`/${item}`} className="inline-block p-2 font-medium capitalize">{item}</Link>
                             </li>
                         ))
                     }
@@ -47,9 +47,9 @@ export default function Header() {
                 />
             </div>
 
-            <div className='hidden md:flex items-center gap-x-2 font-medium shrink-0'>
-                <button className="text-secondary px-4 py-2 rounded">Log In</button>
-                <button className='text-secondary px-4 py-2 rounded'>Sign Up</button>
+            <div className='items-center hidden font-medium md:flex gap-x-2 shrink-0'>
+                <button className="px-4 py-2 rounded text-secondary">Log In</button>
+                <button className='px-4 py-2 rounded text-secondary'>Sign Up</button>
             </div>
         </header>
     )
