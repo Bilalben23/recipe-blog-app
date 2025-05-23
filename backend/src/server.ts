@@ -2,8 +2,8 @@ import express from "express";
 import ENV_VARS from "./configs/envVars.ts";
 import cors from "cors";
 import { connectToDB } from "./configs/connectDB.ts";
-import ItemsRoutes from "./routes/ItemRoutes.ts";
-import CategoryRoutes from "./routes/categoryRoutes.ts";
+import ItemsRoutes from "./routes/Item.routes.ts";
+import CategoryRoutes from "./routes/category.routes.ts";
 
 const app = express();
 

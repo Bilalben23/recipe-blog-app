@@ -1,5 +1,6 @@
 import CategoryWrapper from '@components/ui/category/CategoryWrapper';
 import { CategoryName } from '@constants/categories';
+import { useCategoryItems } from '@hooks/useCategoryItems';
 import { useParams } from 'react-router-dom'
 
 export default function CategoryPage() {
@@ -12,6 +13,7 @@ export default function CategoryPage() {
         </div>
     }
 
+    const { data: categoryItems, isLoading, isError } = useCategoryItems(category);
 
     return (
         <div className='px-4 sm:px-8 md:px-10 lg:px-12 py-4'>
@@ -20,9 +22,26 @@ export default function CategoryPage() {
             </h1>
             <CategoryWrapper />
 
-            <div>
-
-            </div>
+            <ul>
+                {
+                    !isError
+                        ? isLoading
+                            ? <div>Loading...</div>
+                            :
+                            categoryItems?.data?.length > 0
+                                ? categoryItems?.data?.map((item: any) => (
+                                    <li key={item._id}>
+                                        <p >{item.name}</p>
+                                    </li>
+                                ))
+                                : <div>
+                                    <p className="text-xl text-gray-600">No items found</p>
+                                </div>
+                        : <div>
+                            <p className="text-xl text-gray-600">Error loading items</p>
+                        </div>
+                }
+            </ul>
         </div>
     )
 }

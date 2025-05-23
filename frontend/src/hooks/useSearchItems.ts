@@ -2,7 +2,7 @@ import axiosInstance from "@api/axios";
 import { useQuery } from "@tanstack/react-query"
 
 
-const useSearchItems = (query: string) => {
+export const useSearchItems = (query: string) => {
 
     return useQuery({
         queryKey: ['searchItems', query],
@@ -13,5 +13,3 @@ const useSearchItems = (query: string) => {
         enabled: !!query,
     })
 }
-
-export default useSearchItems;

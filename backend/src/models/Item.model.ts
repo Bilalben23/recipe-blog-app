@@ -1,7 +1,8 @@
+import type { IComment, IIngredient, IItem, IMore } from "@/types/item.types.ts";
 import { Schema, model } from "mongoose";
 
 
-const IngredientSchema = new Schema({
+const IngredientSchema = new Schema<IIngredient>({
     name: {
         type: String,
         required: true,
@@ -12,7 +13,7 @@ const IngredientSchema = new Schema({
     }
 })
 
-const CommentSchema = new Schema({
+const CommentSchema = new Schema<IComment>({
     user: {
         type: String,
         required: true
@@ -24,7 +25,7 @@ const CommentSchema = new Schema({
 })
 
 
-const MoreSchema = new Schema({
+const MoreSchema = new Schema<IMore>({
     prep_time: {
         type: String,
         required: true
@@ -48,21 +49,25 @@ const MoreSchema = new Schema({
 })
 
 
-const ItemSchema = new Schema({
+const ItemSchema = new Schema<IItem>({
     menuId: {
         type: Number,
         required: true
     },
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
+        unique: true,
+        lowercase: true
     },
     thumbnail_image: {
         type: String,
         required: true
     },
     category: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: "Category",
         required: true
     },
     instructions: {
@@ -75,11 +80,10 @@ const ItemSchema = new Schema({
         required: true
     },
     comments: {
-        type: [CommentSchema],
-        required: true
+        type: [CommentSchema]
     },
     more: {
-        type: [MoreSchema],
+        type: MoreSchema,
         required: true
     }
 

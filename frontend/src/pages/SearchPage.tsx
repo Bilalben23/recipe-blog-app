@@ -1,4 +1,4 @@
-import useSearchItems from '@hooks/useSearchItems';
+import { useSearchItems } from '@hooks/useSearchItems';
 import { FormEvent, useEffect, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import { useSearchParams } from 'react-router-dom';
