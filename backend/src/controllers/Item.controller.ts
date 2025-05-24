@@ -3,25 +3,48 @@ import { Item } from "@/models/Item.model.ts";
 import { CreateItemInput } from "@/schemas/item.schema.ts";
 import { Request, Response } from "express-serve-static-core";
 
+export const getAllItems = async (
+    req: Request<{}, {}, {}, { limit?: number; page?: number }>,
+    res: Response
+) => {
+    const limit = Number(req.query.limit) || 10;
+    const page = Number(req.query.page) || 1;
+    const skip = (page - 1) * limit;
 
-export const getAllItems = async (req: Request, res: Response) => {
     try {
+        const items = await Item.find({})
+            .populate("category", "name")
+            .select("name thumbnail_image category more.difficulty more.prep_time")
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
+            .lean();
 
-        const items = await Item.find({}).sort({ createdAt: -1 });
+        const total = await Item.countDocuments();
+        const totalPages = Math.ceil(total / limit);
+        const nextPage = page < totalPages ? page + 1 : null;
 
         res.status(200).json({
             success: true,
             message: "Items fetched successfully",
-            data: items
-        })
-
-    } catch {
+            data: items,
+            pagination: {
+                total,
+                page,
+                limit,
+                totalPages,
+                nextPage
+            },
+        });
+    } catch (error) {
+        console.error("Error fetching items:", error);
         res.status(500).json({
             success: false,
-            message: "Internal server error"
-        })
+            message: "Internal server error",
+        });
     }
 }
+
 
 
 export const getItemById = async (req: Request<{ id: string }>, res: Response) => {
@@ -67,6 +90,9 @@ export const getSearchItems = async (req: Request<{}, {}, {}, { q?: string }>, r
     try {
         const items = await Item.find({ name: { $regex: q, $options: "i" } })
             .populate("category", "name")
+            .select("name thumbnail_image category more.difficulty more.prep_time")
+            .sort({ createdAt: -1 })
+            .lean();
 
         res.status(200).json({
             success: true,
@@ -99,9 +125,9 @@ export const getItemsByCategory = async (req: Request<{ category: string }>, res
             return;
         }
 
-
         const itemsByCategory = await Item.find({ category: foundCategory._id })
             .populate("category", "name")
+            .select("name thumbnail_image category more.difficulty more.prep_time")
             .lean()
 
 

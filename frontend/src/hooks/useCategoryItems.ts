@@ -3,41 +3,19 @@ import { CategoryName } from "@constants/categories";
 import { useQuery } from "@tanstack/react-query";
 import { z } from "zod";
 
-const commentSchema = z.object({
-    user: z.string(),
-    comment: z.string(),
-});
-
-const moreSchema = z.object({
-    prep_time: z.string(),
-    cook_time: z.string(),
-    services: z.string(),
-    difficulty: z.string(),
-    source: z.string(),
-});
-
-const ingredientSchema = z.object({
-    name: z.string(),
-    quantity: z.string(),
-});
 
 const itemSchema = z.object({
     _id: z.string(),
-    menuId: z.number(),
     name: z.string(),
     thumbnail_image: z.string().url(),
     category: z.object({
         _id: z.string(),
-        name: z.string(),
+        name: z.string()
     }),
-    instructions: z.string(),
-    tags: z.array(z.string()).optional(),
-    ingredients: z.array(ingredientSchema),
-    comments: z.array(commentSchema).optional(),
-    more: moreSchema,
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    __v: z.number(),
+    more: z.object({
+        prep_time: z.string(),
+        difficulty: z.string()
+    })
 });
 
 // Full response schema matching your API
@@ -47,8 +25,7 @@ const responseSchema = z.object({
     data: z.array(itemSchema),
 });
 
-export type ItemResponse = z.infer<typeof itemSchema>;
-
+type ItemResponse = z.infer<typeof itemSchema>;
 
 export const useCategoryItems = (category: CategoryName) => {
     return useQuery<ItemResponse[]>({
@@ -65,6 +42,6 @@ export const useCategoryItems = (category: CategoryName) => {
             }
 
             return parsed.data.data;
-        },
-    });
-};
+        }
+    })
+}

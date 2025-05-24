@@ -33,7 +33,6 @@ export default function CategoryPage() {
                                 <ItemCardSkeleton key={index} />
                             ))
                         }
-
                     </div>
                 )}
 
