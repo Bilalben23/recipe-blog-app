@@ -36,11 +36,11 @@ export const getAllItems = async (
                 nextPage
             },
         });
-    } catch (error) {
-        console.error("Error fetching items:", error);
+    } catch (err) {
         res.status(500).json({
             success: false,
             message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         });
     }
 }
@@ -70,7 +70,8 @@ export const getItemById = async (req: Request<{ id: string }>, res: Response) =
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         })
     }
 }
@@ -103,7 +104,8 @@ export const getSearchItems = async (req: Request<{}, {}, {}, { q?: string }>, r
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         })
     }
 }
@@ -140,7 +142,8 @@ export const getItemsByCategory = async (req: Request<{ category: string }>, res
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         })
     }
 }
@@ -169,7 +172,8 @@ export const createItem = async (req: Request<{}, {}, CreateItemInput>, res: Res
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         })
     }
 }
@@ -183,7 +187,8 @@ export const updateItem = async (req: Request<{ id: string }>, res: Response) =>
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         })
     }
 }
@@ -213,7 +218,8 @@ export const deleteItem = async (req: Request<{ id: string }>, res: Response) =>
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         })
     }
 }
