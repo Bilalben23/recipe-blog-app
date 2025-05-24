@@ -1,4 +1,5 @@
 import CategoryWrapper from '@components/ui/category/CategoryWrapper'
+import AboutSection from '@components/ui/home/AboutSection'
 import FeaturedSection from '@components/ui/home/FeaturedSection'
 import Hero from '@components/ui/home/Hero'
 import LatestRecipes from '@components/ui/home/LatestRecipes'
@@ -13,6 +14,7 @@ export default function HomePage() {
             <FeaturedSection />
             <LatestRecipes />
             <Newsletter />
+            <AboutSection />
         </div>
     )
 }

@@ -14,7 +14,7 @@ export default function LatestRecipes() {
     const hasData = latestRecipes && latestRecipes.length > 0;
 
     return (
-        <div className="mb-12">
+        <section className="mb-12">
             <h3 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
                 Latest Recipes
             </h3>
@@ -38,7 +38,7 @@ export default function LatestRecipes() {
                 )}
 
                 {!isLoading && !isError && hasData &&
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-8">
                         {
                             latestRecipes.map((item) => (
                                 <ItemCard
@@ -69,6 +69,6 @@ export default function LatestRecipes() {
                     </Link>
                 </div>
             )}
-        </div>
+        </section>
     );
 }

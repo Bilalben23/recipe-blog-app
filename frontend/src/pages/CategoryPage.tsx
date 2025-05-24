@@ -13,7 +13,7 @@ export default function CategoryPage() {
     const { data: categoryItems, isLoading, isError } = useCategoryItems(category);
 
     return (
-        <div className='px-4 py-4 sm:px-8 md:px-10 lg:px-12'>
+        <section className='px-4 py-4 sm:px-8 md:px-10 lg:px-12'>
             <h1 className='py-6 text-3xl font-semibold text-center capitalize sm:text-4xl md:text-5xl lg:text-6xl md:py-9 text-secondary sm:leading-relaxed'>
                 {category}
             </h1>
@@ -37,7 +37,7 @@ export default function CategoryPage() {
                 )}
 
                 {!isError && !isLoading && categoryItems && categoryItems.length > 0 && (
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-8'>
                         {categoryItems.map(item => (
                             <ItemCard
                                 key={item._id}
@@ -58,6 +58,6 @@ export default function CategoryPage() {
                     </div>
                 )}
             </div>
-        </div>
+        </section>
     )
 }

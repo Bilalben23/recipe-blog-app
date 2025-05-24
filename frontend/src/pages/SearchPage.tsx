@@ -36,7 +36,7 @@ export default function SearchPage() {
 
 
     return (
-        <div className="px-6 md:px-10 py-15">
+        <section className="px-6 md:px-10 py-15">
             <h1 className="py-10 text-2xl font-semibold text-center sm:text-3xl md:text-4xl sm:leading-relaxed text-secondary">
                 Search for recipes
             </h1>
@@ -58,7 +58,7 @@ export default function SearchPage() {
 
             <div className='container mx-auto mt-12'>
 
-                {isLoading && <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
+                {isLoading && <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-8'>
                     {
                         Array.from({ length: 6 }).map((_, index) => (
                             <ItemCardSkeleton key={index} />
@@ -89,6 +89,6 @@ export default function SearchPage() {
                 )}
             </div>
 
-        </div>
+        </section>
     );
 }

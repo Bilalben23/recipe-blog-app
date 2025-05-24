@@ -4,8 +4,10 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import toast from 'react-hot-toast';
 
 export default function Newsletter() {
-
-    const [formData, setFormData] = useState({ name: '', email: '' });
+    const [formData, setFormData] = useState({
+        name: '',
+        email: ''
+    });
     const { mutate: subscribe, isPending } = useNewsletterSubscribe();
 
 
@@ -18,13 +20,15 @@ export default function Newsletter() {
     };
 
 
-
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         subscribe(formData, {
             onSuccess: () => {
-                setFormData({ name: '', email: '' });
+                setFormData({
+                    name: '',
+                    email: ''
+                });
                 toast.success("Thank you! You've successfully subscribed. 🎉");
             },
             onError: (err) => {
