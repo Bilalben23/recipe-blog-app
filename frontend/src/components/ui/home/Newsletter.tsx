@@ -80,7 +80,7 @@ export default function Newsletter() {
                 <button
                     type='submit'
                     disabled={isPending}
-                    className='cursor-pointer rounded-md p-4 font-medium border border-[#9c702a] text-secondary hover:text-white text-nowrap hover:bg-btnColor transition-colors duration-300 shadow-xs disabled:opacity-50'
+                    className='cursor-pointer rounded-md p-4 hover:opacity-90 font-medium text-white text-nowrap bg-btnColor transition-colors duration-300 shadow-xs disabled:opacity-50'
                 >
                     {isPending ? 'Submitting...' : 'Get Started'}
                 </button>
