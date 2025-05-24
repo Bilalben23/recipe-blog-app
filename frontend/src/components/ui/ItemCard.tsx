@@ -25,7 +25,7 @@ const ItemCard: FC<ItemCardProps> = ({ id, name, thumbnail_image, category_name,
                 <img
                     src={thumbnail_image}
                     alt={name}
-                    className='rounded-t-md w-full aspect-[10/9] object-cover'
+                    className='rounded-t-md w-full aspect-[12/9] md:aspect-[11/9] object-cover'
                     loading='lazy'
                 />
                 <div className='absolute px-2 py-1 text-sm font-medium bg-white rounded-md shadow z-1 top-2 right-2'>
