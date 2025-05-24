@@ -1,6 +1,6 @@
 import CategoryWrapper from '@components/ui/category/CategoryWrapper'
-import FeaturedSection from '@components/ui/FeaturedSection'
-import Hero from '@components/ui/Hero'
+import FeaturedSection from '@components/ui/home/FeaturedSection'
+import Hero from '@components/ui/home/Hero'
 
 export default function HomePage() {
 
