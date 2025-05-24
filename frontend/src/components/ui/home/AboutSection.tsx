@@ -15,7 +15,7 @@ export default function AboutSection() {
                 <div className="mt-7 md:mt-10">
                     <button
                         type='button'
-                        className="cursor-pointer rounded-md px-8 py-3 font-medium border border-[#9c702a] text-secondary hover:text-white hover:bg-btnColor transition-colors duration-300"
+                        className="cursor-pointer rounded-md px-8 py-3 hover:opacity-90 font-medium text-white bg-btnColor transition-colors duration-300"
                     //  aria-label="View Pineapple & Smoked Jackfruit Pizza recipe"
                     >
                         View Recipe
