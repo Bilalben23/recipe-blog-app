@@ -64,13 +64,11 @@ export default function SearchPage() {
                             <ItemCardSkeleton key={index} />
                         ))
                     }
-
                 </div>}
 
-                {!isLoading && searchResults?.data?.length > 0 && (
+                {!isLoading && searchResults && searchResults?.length > 0 && (
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
-
-                        {searchResults.data.map((item: any) => (
+                        {searchResults.map((item: any) => (
                             <ItemCard
                                 key={item._id}
                                 id={item._id}
@@ -84,7 +82,7 @@ export default function SearchPage() {
                     </div>
                 )}
 
-                {!isLoading && (!searchResults?.data || searchResults.data.length === 0) && (
+                {!isLoading && (!searchResults || searchResults.length === 0) && (
                     <div>
                         No results found for <span className="italic">"{query}"</span>
                     </div>
