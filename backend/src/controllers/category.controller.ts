@@ -1,8 +1,6 @@
 import { Category } from "@/models/category.model.ts";
-import { Item } from "@/models/Item.model.ts";
 import { CreateCategoryInput, UpdateCategoryInput } from "@/schemas/category.schema.ts";
 import { Request, Response } from "express-serve-static-core";
-import { Schema } from "mongoose";
 
 
 
@@ -19,8 +17,9 @@ export const getAllCategories = async (req: Request, res: Response) => {
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
-        });
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
+        })
     }
 }
 
@@ -49,8 +48,9 @@ export const getCategoryById = async (req: Request<{ id: string }>, res: Respons
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
-        });
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
+        })
     }
 }
 
@@ -82,8 +82,9 @@ export const createCategory = async (req: Request<{}, {}, CreateCategoryInput>, 
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
-        });
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
+        })
     }
 }
 
@@ -113,8 +114,9 @@ export const updateCategory = async (req: Request<{ id: string }, {}, UpdateCate
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
-        });
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
+        })
     }
 }
 
@@ -142,7 +144,8 @@ export const deleteCatgeory = async (req: Request<{ id: string }>, res: Response
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Internal server error"
+            message: "Internal server error",
+            error: err instanceof Error ? err.message : "Unknown error"
         });
     }
 }

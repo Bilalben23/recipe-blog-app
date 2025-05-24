@@ -2,8 +2,10 @@ import express from "express";
 import ENV_VARS from "./configs/envVars.ts";
 import cors from "cors";
 import { connectToDB } from "./configs/connectDB.ts";
-import ItemsRoutes from "./routes/Item.routes.ts";
-import CategoryRoutes from "./routes/category.routes.ts";
+import itemsRoutes from "./routes/Item.routes.ts";
+import categoryRoutes from "./routes/category.routes.ts";
+import newsletterRoutes from "./routes/newsletter.routes.ts";
+
 
 const app = express();
 
@@ -22,9 +24,9 @@ app.use(cors({
 }))
 
 
-app.use("/api/v1/items", ItemsRoutes);
-app.use("/api/v1/categories", CategoryRoutes);
-
+app.use("/api/v1/items", itemsRoutes);
+app.use("/api/v1/categories", categoryRoutes);
+app.use("/api/v1/newsletter", newsletterRoutes);
 
 
 const HOST = '0.0.0.0';
