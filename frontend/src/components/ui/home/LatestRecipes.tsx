@@ -22,7 +22,7 @@ export default function LatestRecipes() {
             <div className="mt-7">
 
                 {isError && (
-                    <p className="text-center col-span-full text-red-500">
+                    <p className="text-center text-red-500 col-span-full">
                         {(error as Error)?.message ?? 'Something went wrong.'}
                     </p>
                 )}
@@ -55,7 +55,7 @@ export default function LatestRecipes() {
                 }
 
                 {!isLoading && !isError && !hasData && (
-                    <p className="text-center col-span-full text-gray-500">No recipes found.</p>
+                    <p className="text-center text-gray-500 col-span-full">No recipes found.</p>
                 )}
             </div>
 
@@ -63,7 +63,7 @@ export default function LatestRecipes() {
                 <div className="mt-12 text-center">
                     <Link
                         to={`/categories/${latestRecipes[0].category.name}`}
-                        className="cursor-pointer px-8 py-3 font-medium border border-[#9c702a] text-secondary hover:text-white hover:bg-btnColor transition-colors duration-300"
+                        className="cursor-pointer px-8 rounded-md py-3 font-medium border border-[#9c702a] text-secondary hover:text-white hover:bg-btnColor transition-colors duration-300"
                     >
                         View All Recipes
                     </Link>

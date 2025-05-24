@@ -2,7 +2,7 @@ import pizza from '@assets/pizza.jpeg'
 
 export default function FeaturedSection() {
     return (
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-7 md:px-5 my-10 sm:my-15 md:my-20 md:gap-20 lg:px-10">
+        <section className="flex flex-col-reverse items-center justify-between my-10 md:flex-row gap-7 md:px-5 sm:my-15 md:my-20 md:gap-20 lg:px-10">
             <div className="flex-1">
                 <h2 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
                     Pineapple & Smoked Jackfruit Pizza
@@ -14,7 +14,7 @@ export default function FeaturedSection() {
                 <div className="mt-7 md:mt-10">
                     <button
                         type='button'
-                        className="cursor-pointer px-8 py-3 font-medium border border-[#9c702a] text-secondary hover:text-white hover:bg-btnColor transition-colors duration-300"
+                        className="cursor-pointer rounded-md px-8 py-3 font-medium border border-[#9c702a] text-secondary hover:text-white hover:bg-btnColor transition-colors duration-300"
                     //  aria-label="View Pineapple & Smoked Jackfruit Pizza recipe"
                     >
                         View Recipe
@@ -22,13 +22,13 @@ export default function FeaturedSection() {
                 </div>
             </div>
 
-            <div className="flex-1 relative w-full">
+            <div className="relative flex-1 w-full">
                 <img
                     src={pizza}
                     alt="Pineapple and Smoked Jackfruit Pizza"
-                    className="w-full object-cover rounded-md"
+                    className="object-cover w-full rounded-md"
                 />
-                <span className="absolute top-4 left-5 bg-white text-secondary px-3 py-1.5 rounded-md text-xs md:text-sm lg:text-base font-semibold uppercase tracking-widest shadow-sm">
+                <span className="absolute top-2 md:top-4  left-3 md:left-5 bg-white text-secondary px-3 py-1.5 rounded-md text-xs md:text-sm lg:text-base font-semibold uppercase tracking-widest shadow-sm">
                     Featured Recipe
                 </span>
             </div>
