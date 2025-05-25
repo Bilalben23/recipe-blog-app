@@ -2,7 +2,7 @@ import axiosInstance from "@api/axios"
 import { useMutation } from "@tanstack/react-query"
 
 interface NewsletterPayload {
-    name: string;
+    name?: string;
     email: string;
 }
 

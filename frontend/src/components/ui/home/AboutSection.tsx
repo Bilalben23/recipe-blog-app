@@ -5,9 +5,9 @@ export default function AboutSection() {
     return (
         <section className="flex flex-col-reverse items-center justify-between my-10 md:flex-row gap-7 md:px-5 sm:my-15 md:my-20 md:gap-20 lg:px-10">
             <div className="flex-1">
-                <h5 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
+                <h4 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
                     Passionate Vegan Chef on a Flavorful Mission
-                </h5>
+                </h4>
                 <p className="mt-4 text-lg text-secondary/80">
                     Hi, I'm Bilal — a plant-based home chef dedicated to transforming everyday ingredients into mouthwatering vegan meals. From reinventing comfort food to exploring bold global flavors, I love showing that eating compassionately doesn't mean sacrificing taste. Whether you're a seasoned vegan or just curious, you're in the right place!
                 </p>

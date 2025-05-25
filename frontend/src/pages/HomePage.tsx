@@ -5,6 +5,7 @@ import FeaturedSection from '@components/ui/home/FeaturedSection'
 import Hero from '@components/ui/home/Hero'
 import LatestRecipes from '@components/ui/home/LatestRecipes'
 import Newsletter from '@components/ui/home/Newsletter'
+import Subscription from '@components/ui/home/Subscription'
 
 export default function HomePage() {
 
@@ -17,6 +18,7 @@ export default function HomePage() {
             <Newsletter />
             <AboutSection />
             <CompaniesLogos />
+            <Subscription />
         </div>
     )
 }

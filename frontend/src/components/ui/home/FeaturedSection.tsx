@@ -16,9 +16,9 @@ export default function FeaturedSection() {
             </div>
 
             <div className="flex-1">
-                <h2 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
+                <h1 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
                     Pineapple & Smoked Jackfruit Pizza
-                </h2>
+                </h1>
                 <p className="mt-4 text-lg text-secondary/80">
                     A bold twist on a classic favorite—this tropical delight combines smoky jackfruit and tangy pineapple on a crispy crust. Perfect for plant-based foodies and pizza lovers alike.
                 </p>

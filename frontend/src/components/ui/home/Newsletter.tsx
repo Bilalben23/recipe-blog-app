@@ -23,7 +23,15 @@ export default function Newsletter() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        subscribe(formData, {
+        if (!formData.email) {
+            toast.error("Email is required.");
+            return;
+        }
+
+        subscribe({
+            name: formData.name ? formData.name : undefined,
+            email: formData.email
+        }, {
             onSuccess: () => {
                 setFormData({
                     name: '',
@@ -47,9 +55,9 @@ export default function Newsletter() {
 
     return (
         <div className='flex flex-col items-center w-full p-2 mx-auto sm:p-4 md:p-8 md:w-2/3'>
-            <h4 className='text-2xl font-semibold text-center sm:text-3xl md:text-4xl text-secondary'>
+            <h3 className='text-2xl font-semibold text-center sm:text-3xl md:text-4xl text-secondary'>
                 Sign up for my weekly newsletter!
-            </h4>
+            </h3>
             <p className='mt-6 text-lg font-light leading-normal text-center text-gray-600'>
                 Weekly emails with my latest recipes, cooking tips and tricks and product recommendations!
                 <br />
@@ -63,7 +71,6 @@ export default function Newsletter() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder='Name...'
-                    required
                     className='p-4 bg-white rounded shadow-xs outline-none md:min-w-xs'
                     readOnly={isPending}
                 />
@@ -80,7 +87,7 @@ export default function Newsletter() {
                 <button
                     type='submit'
                     disabled={isPending}
-                    className='cursor-pointer rounded-md p-4 hover:opacity-90 font-medium text-white text-nowrap bg-btnColor transition-colors duration-300 shadow-xs disabled:opacity-50'
+                    className='p-4 font-medium text-white transition-colors duration-300 rounded-md shadow-xs cursor-pointer hover:opacity-90 text-nowrap bg-btnColor disabled:opacity-50'
                 >
                     {isPending ? 'Submitting...' : 'Get Started'}
                 </button>

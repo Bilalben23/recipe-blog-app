@@ -15,9 +15,9 @@ export default function LatestRecipes() {
 
     return (
         <section className="mb-12">
-            <h3 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
+            <h2 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
                 Latest Recipes
-            </h3>
+            </h2>
 
             <div className="mt-7">
 
