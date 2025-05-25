@@ -14,8 +14,8 @@ export default function LatestRecipes() {
     const hasData = latestRecipes && latestRecipes.length > 0;
 
     return (
-        <section className="mb-12">
-            <h2 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
+        <section className="px-4 mb-12">
+            <h2 className="text-2xl font-bold text-secondary sm:text-3xl md:text-4xl sm:leading-snug">
                 Latest Recipes
             </h2>
 

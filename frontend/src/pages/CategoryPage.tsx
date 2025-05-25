@@ -3,6 +3,7 @@ import CategoryWrapper from '@components/ui/category/CategoryWrapper';
 import ItemCard from '@components/ui/ItemCard';
 import { type CategoryName } from '@constants/categories';
 import { useCategoryItems } from '@hooks/useCategoryItems';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
 export default function CategoryPage() {
@@ -12,9 +13,14 @@ export default function CategoryPage() {
 
     const { data: categoryItems, isLoading, isError } = useCategoryItems(category);
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <section className='px-4 py-4 sm:px-8 md:px-10 lg:px-12'>
-            <h1 className='py-6 text-3xl font-semibold text-center capitalize sm:text-4xl md:text-5xl lg:text-6xl md:py-9 text-secondary sm:leading-relaxed'>
+            <h1 className='py-6 text-2xl font-semibold text-center capitalize sm:text-3xl md:text-4xl lg:text-5xl md:py-9 text-secondary sm:leading-relaxed'>
                 {category}
             </h1>
             <CategoryWrapper />

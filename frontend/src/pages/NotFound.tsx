@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { FiArrowRight } from 'react-icons/fi';
 import { APP_ROUTES } from "@constants/routes";
+import { useEffect } from "react";
 
 export default function NotFound() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <main className="relative grid px-6 py-12 border place-items-center sm:py-32 lg:px-8 not-found-bg">
 

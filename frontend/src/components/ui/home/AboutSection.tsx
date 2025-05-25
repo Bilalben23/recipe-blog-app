@@ -3,9 +3,9 @@ import man_cooking from '@assets/man_cooking.jpg';
 
 export default function AboutSection() {
     return (
-        <section className="flex flex-col-reverse items-center justify-between my-10 md:flex-row gap-7 md:px-5 sm:my-15 md:my-20 md:gap-20 lg:px-10">
+        <section className="flex flex-col-reverse items-center justify-between px-4 my-10 md:flex-row gap-7 md:px-5 sm:my-15 md:my-20 md:gap-20 lg:px-10">
             <div className="flex-1">
-                <h4 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
+                <h4 className="text-2xl font-bold sm:text-3xl text-secondary md:text-4xl sm:leading-snug">
                     Passionate Vegan Chef on a Flavorful Mission
                 </h4>
                 <p className="mt-4 text-lg text-secondary/80">
@@ -15,7 +15,7 @@ export default function AboutSection() {
                 <div className="mt-7 md:mt-10">
                     <button
                         type='button'
-                        className="cursor-pointer rounded-md px-8 py-3 hover:opacity-90 font-medium text-white bg-btnColor transition-colors duration-300"
+                        className="px-8 py-3 font-medium text-white transition-colors duration-300 rounded-md cursor-pointer hover:opacity-90 bg-btnColor"
                     //  aria-label="View Pineapple & Smoked Jackfruit Pizza recipe"
                     >
                         View Recipe

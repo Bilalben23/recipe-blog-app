@@ -54,7 +54,7 @@ export default function Newsletter() {
 
 
     return (
-        <div className='flex flex-col items-center w-full p-2 mx-auto sm:p-4 md:p-8 md:w-2/3'>
+        <div className='flex flex-col items-center w-full p-4 mx-auto md:p-8 md:w-2/3'>
             <h3 className='text-2xl font-semibold text-center sm:text-3xl md:text-4xl text-secondary'>
                 Sign up for my weekly newsletter!
             </h3>

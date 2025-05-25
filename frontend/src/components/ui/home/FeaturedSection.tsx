@@ -2,7 +2,7 @@ import pizza from '@assets/pizza.jpeg'
 
 export default function FeaturedSection() {
     return (
-        <section className="flex flex-col items-center justify-between my-10 md:flex-row gap-7 md:px-5 sm:my-15 md:my-20 md:gap-20 lg:px-10">
+        <section className="flex flex-col items-center justify-between px-4 my-10 md:flex-row gap-7 md:px-5 sm:my-15 md:my-20 md:gap-20 lg:px-10">
             <div className="relative flex-1 w-full">
                 <img
                     src={pizza}
@@ -16,7 +16,7 @@ export default function FeaturedSection() {
             </div>
 
             <div className="flex-1">
-                <h1 className="text-3xl font-bold text-secondary sm:text-5xl sm:leading-snug">
+                <h1 className="text-2xl font-bold text-secondary sm:text-3xl md:text-4xl sm:leading-snug">
                     Pineapple & Smoked Jackfruit Pizza
                 </h1>
                 <p className="mt-4 text-lg text-secondary/80">
