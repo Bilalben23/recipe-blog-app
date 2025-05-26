@@ -1,4 +1,3 @@
-import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
 import ItemDetailsSkeleton from '@components/skeletons/ItemDetailsSkeleton';
 import ErrorMessage from '@components/ui/ErrorMessage';
 import { categories } from '@constants/categories';
@@ -30,8 +29,8 @@ export default function ItemPage() {
                     ) : isError
                         ? (
                             <ErrorMessage
-                                title="Unable to load item"
-                                message={error?.message || 'An unexpected error occurred.'}
+                                title={error.name || "Unable to load item"
+                                } message={error.message || 'An unexpected error occurred.'}
                             />
                         ) : recipe && <article className='bg-white p-4 md:p-10'>
                             <div className='flex flex-col md:flex-row gap-7 md:gap-10'>

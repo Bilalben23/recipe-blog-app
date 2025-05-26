@@ -1,4 +1,5 @@
 import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
+import ErrorMessage from '@components/ui/ErrorMessage';
 import ItemCard from '@components/ui/ItemCard';
 import { useSearchItems } from '@hooks/useSearchItems';
 import { FormEvent, useEffect, useState } from 'react';
@@ -58,6 +59,13 @@ export default function SearchPage() {
 
             <div className='container mx-auto mt-12'>
 
+                {isError && (
+                    <ErrorMessage
+                        title="Failed to fetch search results"
+                        message={error instanceof Error ? error.message : 'An unexpected error occurred.'}
+                    />
+                )}
+
                 {isLoading && <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-8'>
                     {
                         Array.from({ length: 6 }).map((_, index) => (
@@ -66,7 +74,7 @@ export default function SearchPage() {
                     }
                 </div>}
 
-                {!isLoading && searchResults && searchResults?.length > 0 && (
+                {!isLoading && !isError && searchResults && searchResults?.length > 0 && (
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
                         {searchResults.map((item: any) => (
                             <ItemCard
@@ -82,9 +90,13 @@ export default function SearchPage() {
                     </div>
                 )}
 
-                {!isLoading && (!searchResults || searchResults.length === 0) && (
-                    <div>
-                        No results found for <span className="italic">"{query}"</span>
+                {!isLoading && !isError && (!searchResults || searchResults.length === 0) && (
+                    <div className="mt-12 max-w-lg mx-auto text-center border border-neutral-200 rounded-md bg-neutral-50 p-6 shadow-sm">
+                        <h2 className="text-lg font-semibold text-neutral-700 mb-2">No Results Found</h2>
+                        <p className="text-sm text-neutral-600">
+                            We couldn't find any results for <span className="italic font-medium">"{query}"</span>.
+                            Try refining your search.
+                        </p>
                     </div>
                 )}
             </div>

@@ -1,4 +1,5 @@
 import { categories } from '@constants/categories'
+import { difficultyLevels } from '@constants/difficultyLevels';
 import { FC } from 'react'
 import { GoClock } from "react-icons/go";
 import { Link } from 'react-router-dom';
@@ -10,13 +11,12 @@ type ItemCardProps = {
     thumbnail_image: string,
     category_name: string,
     prep_time: string,
-    difficulty: string
+    difficulty: "easy" | "medium" | "hard"
 }
 
 
 const ItemCard: FC<ItemCardProps> = ({ id, name, thumbnail_image, category_name, prep_time, difficulty }) => {
     const categoryStyles = categories.find(c => c.name === category_name);
-
 
     return (
         <div className='pb-5 transition duration-300 bg-white rounded-md shadow hover:shadow-md'>
@@ -27,7 +27,7 @@ const ItemCard: FC<ItemCardProps> = ({ id, name, thumbnail_image, category_name,
                     className='rounded-t-md w-full aspect-[12/9] md:aspect-[11/9] object-cover'
                     loading='lazy'
                 />
-                <div className='absolute px-2 py-1 text-sm font-medium bg-white rounded-md shadow z-1 top-2 right-2'>
+                <div className={`absolute px-2 py-1 text-sm font-medium rounded-md shadow z-1 top-2 right-2 ${difficultyLevels[difficulty].bgColor}`}>
                     {difficulty}
                 </div>
             </Link>

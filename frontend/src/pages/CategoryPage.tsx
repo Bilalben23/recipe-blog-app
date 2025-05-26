@@ -1,5 +1,6 @@
 import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
 import CategoryWrapper from '@components/ui/category/CategoryWrapper';
+import ErrorMessage from '@components/ui/ErrorMessage';
 import ItemCard from '@components/ui/ItemCard';
 import { type CategoryName } from '@constants/categories';
 import { useCategoryItems } from '@hooks/useCategoryItems';
@@ -11,7 +12,7 @@ export default function CategoryPage() {
     const params = useParams<{ category?: CategoryName }>();
     const category = params.category ?? "breakfast";
 
-    const { data: categoryItems, isLoading, isError } = useCategoryItems(category);
+    const { data: categoryItems, isLoading, isError, error } = useCategoryItems(category);
 
 
     useEffect(() => {
@@ -27,9 +28,10 @@ export default function CategoryPage() {
 
             <div className='container mx-auto mt-12'>
                 {isError && (
-                    <div>
-                        <p className="text-xl text-gray-600">Error loading items</p>
-                    </div>
+                    <ErrorMessage
+                        title={error.name || "Unable to load item"
+                        } message={error.message || 'An unexpected error occurred.'}
+                    />
                 )}
 
                 {!isError && isLoading && (

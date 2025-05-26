@@ -1,12 +1,14 @@
 
-export type CategoryName = {
-    name: "breakfast" | "entrees" | "lunch" | "desserts" | "sides" | "drinks",
+export type CategoryName = "breakfast" | "entrees" | "lunch" | "desserts" | "sides" | "drinks";;
+
+export type Category = {
+    name: CategoryName,
     bgColor: string,
     color: string
 }
 
 
-export const categories: CategoryName[] = [
+export const categories: Category[] = [
     {
         name: 'breakfast',
         bgColor: '#efedfa',
