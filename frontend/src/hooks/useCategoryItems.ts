@@ -14,7 +14,7 @@ const itemSchema = z.object({
     }),
     more: z.object({
         prep_time: z.string(),
-        difficulty: z.string()
+        difficulty: z.enum(["easy", "medium", "hard"]),
     })
 });
 

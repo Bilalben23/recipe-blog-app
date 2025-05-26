@@ -6,6 +6,7 @@ import HomePage from '@pages/HomePage';
 import ItemPage from '@pages/ItemPage';
 import NotFound from '@pages/NotFound';
 import SearchPage from '@pages/SearchPage';
+import RecipesPage from '@pages/RecipesPage';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path='/categories/:category' element={<CategoryPage />} />
           <Route path='/search' element={<SearchPage />} />
           <Route path='/items/:id' element={<ItemPage />} />
+          <Route path='/recipes' element={<RecipesPage />} />
 
         </Route>
         <Route path="*" element={<NotFound />} />

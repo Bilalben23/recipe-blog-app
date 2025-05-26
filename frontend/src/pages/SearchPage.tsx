@@ -76,7 +76,7 @@ export default function SearchPage() {
 
                 {!isLoading && !isError && searchResults && searchResults?.length > 0 && (
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12'>
-                        {searchResults.map((item: any) => (
+                        {searchResults.map(item => (
                             <ItemCard
                                 key={item._id}
                                 id={item._id}

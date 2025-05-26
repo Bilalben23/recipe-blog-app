@@ -5,7 +5,7 @@ import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
 
 export default function LatestRecipes() {
     const {
-        data: latestRecipes,
+        data: { data: latestRecipes } = {},
         isLoading,
         isError,
         error,
@@ -62,7 +62,8 @@ export default function LatestRecipes() {
             {hasData && (
                 <div className="mt-12 text-center">
                     <Link
-                        to={`/categories/${latestRecipes[0].category.name}`}
+                        to="/recipes"
+                        aria-label="View all recipes"
                         className="cursor-pointer px-8 rounded-md py-3 font-medium border border-[#9c702a] text-secondary hover:text-white hover:bg-btnColor transition-colors duration-300"
                     >
                         View All Recipes

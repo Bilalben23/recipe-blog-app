@@ -13,7 +13,7 @@ const itemSchema = z.object({
     }),
     more: z.object({
         prep_time: z.string(),
-        difficulty: z.string(),
+        difficulty: z.enum(["easy", "medium", "hard"])
     })
 });
 
@@ -27,15 +27,16 @@ const responseSchema = z.object({
         page: z.number(),
         limit: z.number(),
         totalPages: z.number(),
-    }).optional(),
+    }),
 });
 
-type Item = z.infer<typeof itemSchema>;
+type ItemsResponse = z.infer<typeof responseSchema>;
+
 
 export const useItems = ({ limit = 10, page = 1 }: { limit?: number; page?: number }) => {
-    return useQuery<Item[]>({
+    return useQuery<ItemsResponse>({
         queryKey: ['items', { limit, page }],
-        queryFn: async () => {
+        queryFn: async (): Promise<ItemsResponse> => {
             const { data } = await axiosInstance.get('v1/items', {
                 params: { limit, page },
             });
@@ -47,7 +48,7 @@ export const useItems = ({ limit = 10, page = 1 }: { limit?: number; page?: numb
                 throw new Error("Invalid response data");
             }
 
-            return parsed.data.data;
+            return parsed.data;
         }
     });
 };
