@@ -5,7 +5,7 @@ import MobileNavbar from "./MobileNavbar";
 import { useState } from "react";
 
 const menuItems = [
-    "recipe",
+    "recipes",
     "resources",
     "about",
     "contact"
@@ -15,7 +15,6 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
-
 
     return (
         <header className="flex items-center justify-between px-6 py-2 md:px-12 gap-x-5 ">
