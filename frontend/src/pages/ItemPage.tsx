@@ -1,4 +1,6 @@
-import { categories, CategoryName } from '@constants/categories';
+import ItemCardSkeleton from '@components/skeletons/ItemCardSkeleton';
+import ItemDetailsSkeleton from '@components/skeletons/ItemDetailsSkeleton';
+import { categories } from '@constants/categories';
 import { difficultyLevels } from '@constants/difficultyLevels';
 import { useItem } from '@hooks/useItem'
 import { useEffect } from 'react';
@@ -22,7 +24,8 @@ export default function ItemPage() {
         <section className='mt-6 container mx-auto'>
             {
                 isLoading
-                    ? <p>Loading ....</p>
+                    ? <ItemDetailsSkeleton />
+
                     : recipe && <article className='bg-white p-4 md:p-10'>
                         <div className='flex flex-col md:flex-row gap-7 md:gap-10'>
                             <div className='flex-1 relative'>
