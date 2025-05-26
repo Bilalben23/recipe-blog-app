@@ -1,10 +1,11 @@
-import { APP_ROUTES } from '@constants/routes'
-import AppLayout from '@layouts/AppLayout'
-import CategoryPage from '@pages/CategoryPage'
-import HomePage from '@pages/HomePage'
-import NotFound from '@pages/NotFound'
-import SearchPage from '@pages/SearchPage'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { APP_ROUTES } from '@constants/routes';
+import AppLayout from '@layouts/AppLayout';
+import CategoryPage from '@pages/CategoryPage';
+import HomePage from '@pages/HomePage';
+import ItemPage from '@pages/ItemPage';
+import NotFound from '@pages/NotFound';
+import SearchPage from '@pages/SearchPage';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path='/categories/:category' element={<CategoryPage />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='/items/:id' element={<ItemPage />} />
 
         </Route>
         <Route path="*" element={<NotFound />} />

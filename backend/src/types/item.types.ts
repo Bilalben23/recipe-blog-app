@@ -1,8 +1,15 @@
 import { Schema } from "mongoose";
 
+
+export interface IInstructions {
+    stepTitle: string;
+    stepDescription: string
+}
+
+
 export interface IIngredient {
     name: string;
-    quantity: string;
+    quantity: string
 }
 
 export interface IComment {
@@ -13,9 +20,9 @@ export interface IComment {
 export interface IMore {
     prep_time: string;
     cook_time: string;
-    services: string;
+    servings: string;
     difficulty: string;
-    source: string;
+    source: string
 }
 
 export interface IItem {
@@ -23,9 +30,10 @@ export interface IItem {
     name: string;
     thumbnail_image: string;
     category: Schema.Types.ObjectId;
-    instructions: string;
+    instructions: IInstructions[];
+    description: string;
     tags: string[];
     ingredients: IIngredient[];
     comments: IComment[];
-    more: IMore;
+    more: IMore
 }

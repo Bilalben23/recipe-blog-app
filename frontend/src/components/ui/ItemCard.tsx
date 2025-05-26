@@ -15,7 +15,6 @@ type ItemCardProps = {
 
 
 const ItemCard: FC<ItemCardProps> = ({ id, name, thumbnail_image, category_name, prep_time, difficulty }) => {
-
     const categoryStyles = categories.find(c => c.name === category_name);
 
 

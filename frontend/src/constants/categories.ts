@@ -1,4 +1,12 @@
-export const categories = [
+
+export type CategoryName = {
+    name: "breakfast" | "entrees" | "lunch" | "desserts" | "sides" | "drinks",
+    bgColor: string,
+    color: string
+}
+
+
+export const categories: CategoryName[] = [
     {
         name: 'breakfast',
         bgColor: '#efedfa',
@@ -30,6 +38,3 @@ export const categories = [
         color: '#f0493e',
     },
 ] as const;
-
-
-export type CategoryName = typeof categories[number]['name'];

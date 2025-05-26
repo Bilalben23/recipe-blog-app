@@ -2,6 +2,20 @@ import type { IComment, IIngredient, IItem, IMore } from "@/types/item.types.ts"
 import { Schema, model } from "mongoose";
 
 
+const InstructionSchema = new Schema({
+    stepTitle: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    stepDescription: {
+        type: String,
+        required: true,
+        trim: true
+    }
+}, { _id: false });
+
+
 const IngredientSchema = new Schema<IIngredient>({
     name: {
         type: String,
@@ -11,7 +25,7 @@ const IngredientSchema = new Schema<IIngredient>({
         type: String,
         required: true,
     }
-})
+}, { _id: false })
 
 const CommentSchema = new Schema<IComment>({
     user: {
@@ -22,7 +36,7 @@ const CommentSchema = new Schema<IComment>({
         type: String,
         required: true
     }
-})
+}, { _id: false });
 
 
 const MoreSchema = new Schema<IMore>({
@@ -34,20 +48,23 @@ const MoreSchema = new Schema<IMore>({
         type: String,
         required: true
     },
-    services: {
+    servings: {
         type: String,
         required: true
     },
     difficulty: {
         type: String,
+        enum: ["easy", "medium", "hard"],
         required: true
     },
     source: {
         type: String,
         required: true
     }
-})
+}, { _id: false });
 
+
+const DEFAULT_DESCRIPTION = "A delightful dish crafted with care, combining fresh ingredients and easy-to-follow steps for a satisfying meal experience.";
 
 const ItemSchema = new Schema<IItem>({
     menuId: {
@@ -70,17 +87,26 @@ const ItemSchema = new Schema<IItem>({
         ref: "Category",
         required: true
     },
-    instructions: {
+    description: {
         type: String,
+        trim: true,
+        default: DEFAULT_DESCRIPTION
+    },
+    instructions: {
+        type: [InstructionSchema],
         required: true
     },
-    tags: [String],
+    tags: {
+        type: [String],
+        default: []
+    },
     ingredients: {
         type: [IngredientSchema],
         required: true
     },
     comments: {
-        type: [CommentSchema]
+        type: [CommentSchema],
+        default: []
     },
     more: {
         type: MoreSchema,

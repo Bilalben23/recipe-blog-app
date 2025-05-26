@@ -46,12 +46,13 @@ export const getAllItems = async (
 }
 
 
-
 export const getItemById = async (req: Request<{ id: string }>, res: Response) => {
     const { id } = req.params;
 
     try {
-        const item = await Item.findById(id);
+        const item = await Item.findById(id)
+            .populate("category", "name")
+            .lean();
 
         if (!item) {
             res.status(404).json({
