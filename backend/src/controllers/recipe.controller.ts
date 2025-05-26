@@ -14,7 +14,7 @@ interface RecipeBlog {
 
 
 export const fetchRecipeBlogs = async (req: Request<{}, {}, {}, { number?: number }>, res: Response) => {
-    const { number = 5 } = req.query;
+    const { number = 6 } = req.query;
     try {
         const { data } = await axios.get(`https://api.spoonacular.com/recipes/random`, {
             params: {
