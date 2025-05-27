@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-
 import {
     MdEmail,
     MdLocationOn,
@@ -29,7 +28,7 @@ export default function ContactPage() {
         setFormData(prevData => ({
             ...prevData,
             [name]: value
-        }));
+        }))
     }
 
     const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {

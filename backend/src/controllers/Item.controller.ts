@@ -40,7 +40,7 @@ export const getAllItems = async (
         res.status(500).json({
             success: false,
             message: "Internal server error",
-            error: err instanceof Error ? err.message : "Unknown error"
+            error: err instanceof Error ? err.message : "Failed to fecth items"
         });
     }
 }

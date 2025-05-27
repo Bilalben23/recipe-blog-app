@@ -6,6 +6,7 @@ import itemsRoutes from "./routes/Item.routes.ts";
 import categoryRoutes from "./routes/category.routes.ts";
 import newsletterRoutes from "./routes/newsletter.routes.ts";
 import recipeRoutes from "./routes/recipe.routes.ts";
+import contactRoutes from "./routes/contact.routes.ts";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/v1/items", itemsRoutes);
 app.use("/api/v1/categories", categoryRoutes);
 app.use("/api/v1/newsletter", newsletterRoutes);
 app.use("/api/v1/recipe", recipeRoutes);
+app.use("/api/v1/contact", contactRoutes);
 
 
 const HOST = '0.0.0.0';
