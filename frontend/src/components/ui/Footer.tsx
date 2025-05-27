@@ -105,15 +105,15 @@ export default function Footer() {
 
                             <ul className="mt-6 space-y-4 text-sm">
                                 <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75"> About </a>
+                                    <Link to="/about" className="text-gray-700 transition hover:opacity-75">About</Link>
                                 </li>
 
                                 <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
+                                    <Link to="/contact" className="text-gray-700 transition hover:opacity-75"> Meet the Team </Link>
                                 </li>
 
                                 <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Blog & News </a>
+                                    <Link to="/resources" className="text-gray-700 transition hover:opacity-75"> Blog & News </Link>
                                 </li>
                             </ul>
                         </div>
@@ -123,7 +123,7 @@ export default function Footer() {
 
                             <ul className="mt-6 space-y-4 text-sm">
                                 <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">Contact Us</a>
+                                    <Link to="/contact" className="text-gray-700 transition hover:opacity-75">Contact Us</Link>
                                 </li>
 
                                 <li>
@@ -131,7 +131,7 @@ export default function Footer() {
                                 </li>
 
                                 <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Live Chat</a>
                                 </li>
                             </ul>
                         </div>

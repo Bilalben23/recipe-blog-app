@@ -32,9 +32,7 @@ app.use("/api/v1/recipe", recipeRoutes);
 app.use("/api/v1/contact", contactRoutes);
 
 
-const HOST = '0.0.0.0';
-
-app.listen(ENV_VARS.PORT, HOST, () => {
+app.listen(ENV_VARS.PORT, () => {
     console.log(`Server is running on port ${ENV_VARS.PORT}`);
     connectToDB();
 })
