@@ -2,9 +2,14 @@ import BlogCardSkeleton from '@components/skeletons/BlogCardSkeleton';
 import BlogCard from '@components/ui/BlogCard';
 import ErrorMessage from '@components/ui/ErrorMessage';
 import { useRecipeBlogs } from '@hooks/useRecipeBlogs';
+import { useEffect } from 'react';
 
 export default function ResourcesPage() {
     const { data: blogs, isLoading, isError, error } = useRecipeBlogs();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <section className='px-4 py-4 sm:px-8 md:px-10 lg:px-12'>
