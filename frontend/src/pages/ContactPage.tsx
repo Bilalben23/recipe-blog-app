@@ -1,5 +1,5 @@
 import { type ContactMessageInput, useCreateContactMessage } from '@hooks/useCreateContactMessage';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import {
     MdEmail,
@@ -55,6 +55,9 @@ export default function ContactPage() {
         })
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <section className="container mx-auto mt-12 mb-24 bg-white">
@@ -69,7 +72,7 @@ export default function ContactPage() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
+                <div className="grid grid-cols-1 gap-10 mt-10 lg:grid-cols-2">
                     {/* Contact Cards */}
                     <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
                         {/* Email */}

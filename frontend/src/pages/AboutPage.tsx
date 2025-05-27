@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 export default function AboutPage() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <section className="container mx-auto mt-12 mb-24">
             <h1 className="text-2xl font-bold text-center text-secondary sm:text-3xl md:text-4xl sm:leading-snug">

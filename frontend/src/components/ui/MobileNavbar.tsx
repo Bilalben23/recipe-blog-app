@@ -22,7 +22,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, menuItems, closeMenu }) =
                     {
                         menuItems.map((item) => (
                             <li key={item}>
-                                <Link to={`/${item}`} className="inline-block p-2 font-medium capitalize">{item}</Link>
+                                <Link to={`/${item}`} className="inline-block p-2 font-medium capitalize" onClick={closeMenu}>{item}</Link>
                             </li>
                         ))
                     }

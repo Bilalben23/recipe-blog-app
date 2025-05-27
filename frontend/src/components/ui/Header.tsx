@@ -1,5 +1,5 @@
 import logo from "/assets/logo.svg";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { HiBars3BottomRight } from "react-icons/hi2";
 import MobileNavbar from "./MobileNavbar";
 import { useState } from "react";
@@ -26,7 +26,7 @@ export default function Header() {
                     {
                         menuItems.map((item) => (
                             <li key={item}>
-                                <Link to={`/${item}`} className="inline-block p-2 font-medium capitalize">{item}</Link>
+                                <NavLink to={`/${item}`} className={({ isActive }) => `inline-block p-2 font-medium capitalize ${isActive ? "font-semibold underline underline-offset-4" : ""}`}>{item}</NavLink>
                             </li>
                         ))
                     }
@@ -47,8 +47,8 @@ export default function Header() {
             </div>
 
             <div className='items-center hidden font-medium md:flex gap-x-2 shrink-0'>
-                <button className="px-4 py-2 rounded text-secondary">Log In</button>
-                <button className='px-4 py-2 rounded text-secondary'>Sign Up</button>
+                <button className="px-4 py-2 rounded cursor-pointer text-secondary">Log In</button>
+                <button className='px-4 py-2 rounded cursor-pointer text-secondary'>Sign Up</button>
             </div>
         </header>
     )
