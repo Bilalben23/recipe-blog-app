@@ -53,7 +53,7 @@ export default function AboutPage() {
             {/* quotation section */}
             <div className="flex flex-col-reverse items-center justify-between gap-6 p-6 bg-white rounded-md shadow-lg md:p-10 md:flex-row">
                 <div className="max-w-xl text-center md:text-left">
-                    <blockquote className="relative text-lg italic text-secondary">
+                    <blockquote className="relative text-lg italic leading-relaxed text-secondary">
                         <div className="mb-3 text-btnColor">
                             <FaQuoteLeft size={24} />
                         </div>
