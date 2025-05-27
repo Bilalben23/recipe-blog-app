@@ -106,7 +106,8 @@ export const deleteContactMessage = async (req: Request<{ id: string }>, res: Re
 
         res.status(200).json({
             success: true,
-            message: "Contact message deleted successfully"
+            message: "Contact message deleted successfully",
+            data: deletedContactMessage
         })
 
     } catch (err) {
