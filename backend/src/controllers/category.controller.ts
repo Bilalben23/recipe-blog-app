@@ -1,7 +1,6 @@
-import { Category } from "@/models/category.model.ts";
-import { CreateCategoryInput, UpdateCategoryInput } from "@/schemas/category.schema.ts";
 import { Request, Response } from "express-serve-static-core";
-
+import { Category } from "src/models/category.model.ts";
+import type { CreateCategoryInput, UpdateCategoryInput } from "src/schemas/category.schema.ts";
 
 
 export const getAllCategories = async (req: Request, res: Response) => {
@@ -146,7 +145,7 @@ export const deleteCatgeory = async (req: Request<{ id: string }>, res: Response
             success: false,
             message: "Internal server error",
             error: err instanceof Error ? err.message : "Unknown error"
-        });
+        })
     }
 }
 

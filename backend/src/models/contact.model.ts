@@ -1,5 +1,5 @@
-import type { IContactMessage } from "@/types/contact.types.ts";
 import { model, Schema } from "mongoose";
+import { type IContactMessage } from "src/types/contact.types.ts";
 
 const ContactMessageSchema = new Schema<IContactMessage>({
     firstName: {

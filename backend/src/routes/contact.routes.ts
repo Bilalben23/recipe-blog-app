@@ -1,6 +1,6 @@
-import * as ContactMessageController from "@/controllers/contact.controller.ts";
-import { validateRequest } from "@/middlewares/validateRequest.ts";
-import { contactMessageSchema } from "@/schemas/contact.schema.ts";
+import * as ContactMessageController from "src/controllers/contact.controller.ts";
+import { validateRequest } from "src/middlewares/validateRequest.ts";
+import { contactMessageSchema } from "src/schemas/contact.schema.ts";
 import { Router } from "express";
 
 const router = Router();

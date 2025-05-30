@@ -1,7 +1,7 @@
 import { Router } from "express";
-import * as CategoryController from "@/controllers/category.controller.ts";
-import { validateRequest } from "@/middlewares/validateRequest.ts";
-import { createCategorySchema, updateCategorySchema } from "@/schemas/category.schema.ts";
+import * as CategoryController from "src/controllers/category.controller.ts";
+import { createCategorySchema, updateCategorySchema } from "src/schemas/category.schema.ts";
+import { validateRequest } from "src/middlewares/validateRequest.ts";
 
 
 const router = Router();

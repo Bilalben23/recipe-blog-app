@@ -1,5 +1,6 @@
-import type { ICategory } from "@/types/category.types.ts";
 import { model, Schema } from "mongoose";
+import { type ICategory } from "src/types/category.types.ts";
+
 
 const categorySchema = new Schema<ICategory>({
     name: {

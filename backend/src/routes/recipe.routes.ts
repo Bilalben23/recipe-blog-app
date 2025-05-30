@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { fetchRecipeBlogs } from "../controllers/recipe.controller.ts";
+import { fetchRecipeBlogs } from "src/controllers/recipe.controller.ts";
 
 const router = Router();
 

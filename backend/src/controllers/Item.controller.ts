@@ -1,7 +1,8 @@
-import { Category } from "@/models/category.model.ts";
-import { Item } from "@/models/Item.model.ts";
-import { CreateItemInput } from "@/schemas/item.schema.ts";
 import { Request, Response } from "express-serve-static-core";
+import { Category } from "src/models/category.model.ts";
+import { Item } from "src/models/Item.model.ts";
+import { type CreateItemInput } from "src/schemas/item.schema.ts";
+
 
 export const getAllItems = async (
     req: Request<{}, {}, {}, { limit?: number; page?: number }>,

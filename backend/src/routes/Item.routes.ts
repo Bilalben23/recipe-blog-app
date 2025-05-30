@@ -1,6 +1,6 @@
-import * as ItemsController from "@/controllers/Item.controller.ts";
-import { validateRequest } from "@/middlewares/validateRequest.ts";
-import { createItemSchema } from "@/schemas/item.schema.ts";
+import * as ItemsController from "src/controllers/Item.controller.ts";
+import { validateRequest } from "src/middlewares/validateRequest.ts";
+import { createItemSchema } from "src/schemas/item.schema.ts";
 import { Router } from "express";
 
 const router = Router();

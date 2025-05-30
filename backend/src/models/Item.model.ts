@@ -1,5 +1,5 @@
-import type { IComment, IIngredient, IItem, IMore } from "@/types/item.types.ts";
 import { Schema, model } from "mongoose";
+import type { IComment, IIngredient, IItem, IMore } from "src/types/item.types.ts";
 
 
 const InstructionSchema = new Schema({
