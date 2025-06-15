@@ -14,7 +14,7 @@ router.post("/", validateRequest({ body: createCategorySchema }), CategoryContro
 
 router.patch("/:id", validateRequest({ body: updateCategorySchema }), CategoryController.updateCategory);
 
-router.delete("/:id", CategoryController.deleteCatgeory);
+router.delete("/:id", CategoryController.deleteCategory);
 
 
 

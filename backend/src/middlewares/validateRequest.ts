@@ -1,5 +1,5 @@
-import type { Request, Response, NextFunction } from "express-serve-static-core"
-import { ZodError, ZodSchema } from "zod"
+import type { Request, Response, NextFunction } from "express-serve-static-core";
+import { ZodError, ZodSchema } from "zod";
 
 type ValidateOptions = {
     body?: ZodSchema,

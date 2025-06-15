@@ -24,6 +24,7 @@ app.use(cors({
     credentials: true
 }))
 
+connectToDB();
 
 app.use("/api/v1/items", itemsRoutes);
 app.use("/api/v1/categories", categoryRoutes);
@@ -32,7 +33,9 @@ app.use("/api/v1/recipe", recipeRoutes);
 app.use("/api/v1/contact", contactRoutes);
 
 
-app.listen(ENV_VARS.PORT, () => {
-    console.log(`Server is running on port ${ENV_VARS.PORT}`);
-    connectToDB();
-})
+//app.listen(ENV_VARS.PORT, () => {
+//    console.log(`Server is running on port ${ENV_VARS.PORT}`);
+//    connectToDB();
+//})
+
+export default app;

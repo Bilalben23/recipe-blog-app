@@ -169,7 +169,7 @@ _Full Stack Web Developer | MERN | TypeScript | Crafting Scalable & High-Perform
 
 > 🚀 Check out the live version of Vegiffy:
 
-**🔗 [Live Demo →](https://veggify-frontend.vercel.app)**
+**🔗 [Live Demo →](https://vegiffy.vercel.app)**
 
 Deployed for public access. Explore features like recipe browsing, search, and external resources.
 

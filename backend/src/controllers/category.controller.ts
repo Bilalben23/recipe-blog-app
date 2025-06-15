@@ -1,6 +1,6 @@
 import { Category } from "@/models/category.model.ts";
 import { CreateCategoryInput, UpdateCategoryInput } from "@/schemas/category.schema.ts";
-import { Request, Response } from "express-serve-static-core";
+import type { Request, Response } from "express-serve-static-core";
 
 
 
@@ -121,7 +121,7 @@ export const updateCategory = async (req: Request<{ id: string }, {}, UpdateCate
 }
 
 
-export const deleteCatgeory = async (req: Request<{ id: string }>, res: Response) => {
+export const deleteCategory = async (req: Request<{ id: string }>, res: Response) => {
     const { id } = req.params;
 
     try {

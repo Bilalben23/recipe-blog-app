@@ -1,5 +1,5 @@
 import { NewsletterSubscription } from "@/models/newsletter.model.ts";
-import { Request, Response } from "express";
+import type { Request, Response } from "express-serve-static-core";
 
 
 export const subscribeToNewsletter = async (req: Request<{}, {}, { name: string, email: string }>, res: Response) => {

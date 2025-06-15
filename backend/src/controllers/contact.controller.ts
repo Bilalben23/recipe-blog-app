@@ -1,6 +1,6 @@
 import { ContactMessage } from "@/models/contact.model.ts";
 import { ContactMessageInput } from "@/schemas/contact.schema.ts";
-import { Request, Response } from "express";
+import type { Request, Response } from "express-serve-static-core";
 
 
 export const getPaginatedContactMessages = async (req: Request<{}, {}, {}, { page?: number, limit?: number }>, res: Response) => {

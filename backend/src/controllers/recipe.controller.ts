@@ -1,6 +1,6 @@
 import ENV_VARS from "@/configs/envVars.ts";
 import axios from "axios";
-import { Request, Response } from "express";
+import type { Request, Response } from "express-serve-static-core";
 
 interface RecipeBlog {
     id: number;

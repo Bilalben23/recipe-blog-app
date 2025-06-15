@@ -5,7 +5,7 @@ export const createCategorySchema = z.object({
     name: z.string()
         .trim()
         .toLowerCase()
-        .min(1, "Categiry name is required"),
+        .min(1, "Category name is required"),
     menuId: z.number()
         .int()
         .positive("menuId must be a positive integer")
